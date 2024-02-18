@@ -1,4 +1,14 @@
-<?php include('./inc/header.php');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+ <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+<div class="container">
+   <?php include('./inc/sidebar.php'); ?>
 <div class="main-content">
         <h2>Login</h2>
         <div class="login-form">
@@ -17,4 +27,6 @@
             </form>
         </div>
     </div>
-<?php include('./inc/footer.php');?>
+    </div>
+</body>
+</html>
