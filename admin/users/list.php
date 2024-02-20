@@ -10,7 +10,7 @@
 <div class="container">
    <?php include('../inc/sidebar.php'); ?>
 <div class="main-content">
-        <h2>Books</h2>
+        <h2>Users</h2>
         <div class="action-buttons">
             <a class="add" href="./add.php">Add New</a>
         </div>

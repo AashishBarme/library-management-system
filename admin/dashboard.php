@@ -5,28 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Panel</title>
  <link rel="stylesheet" href="./assets/css/style.css" />
+ <style>
+     .banner {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+     }
+    </style>
 </head>
 <body>
 <div class="container">
    <?php include('./inc/sidebar.php'); ?>
 <div class="main-content">
-        <h2>Login</h2>
-        <div class="login-form">
-            <form action="#">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-        </div>
+<div class="banner">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is a simple dashboard example</p>
     </div>
+
     </div>
 </body>
 </html>
