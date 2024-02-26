@@ -1,5 +1,5 @@
 <?php
-$admin_url = "http://localhost/library-management-system/admin"; ?>
+$admin_url = ADMIN_URL; ?>
 <div class="sidebar">
         <ul>
             <li><a href="<?=$admin_url;?>/dashboard.php">Dashboard</a></li>

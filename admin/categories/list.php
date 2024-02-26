@@ -1,3 +1,7 @@
+<?php require '../../core/functions.php'; 
+    $categories = listCategories();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +24,23 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($categories as $category):?>
                 <tr>
                     <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>Admin</td>
+                    <td><?=$category['title'];?></td>
+                    <td><?=$category['description'];?></td>
+                  
                     <td class="action-buttons">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
+                        <a class="edit" href="./edit.php?id=<?=$category['id'];?>">Edit</a>
+                        <a class="delete" href="./delete.php?id=<?=$category['id'];?>">Delete</a>
                     </td>
                 </tr>
+                <?php endforeach; ?>
                 <!-- Add more rows here -->
             </tbody>
         </table>

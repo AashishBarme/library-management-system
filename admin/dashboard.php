@@ -1,3 +1,13 @@
+<?php
+
+require '../core/functions.php';
+if(!isset($_SESSION) || !$_SESSION['authorized'])
+{
+    echo 'NOT AUTHORIZED';
+    die;
+}
+
+   ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +29,7 @@
    <?php include('./inc/sidebar.php'); ?>
 <div class="main-content">
 <div class="banner">
-        <h1>Welcome to the Dashboard</h1>
-        <p>This is a simple dashboard example</p>
+        <h1>Hello <?=$_SESSION['firstname'];?>, Welcome to the Dashboard</h1>
     </div>
 
     </div>

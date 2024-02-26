@@ -66,12 +66,12 @@
 <div class="container">
     <div class="login-box">
         <h2>Login</h2>
-        <form action="#">
+        <form action="user-validation.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+            <input type="submit" name="action" value="Login">
         </form>
-        <p>Don't have an account? <a href="#">Sign up</a></p>
+        <p>Don't have an account? <a href="./register.php">Sign up</a></p>
     </div>
 </div>
 </body>

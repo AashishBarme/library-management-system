@@ -1,3 +1,5 @@
+<?php  
+require '../../core/functions.php';  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,10 +62,11 @@
    <?php include('../inc/sidebar.php'); ?>
     <div class="main-content">
     <div class="form-container">
-    <form action="#" method="POST">
+    <form action="savedata.php" method="POST">
+    <input type="hidden" name="action" value="create" />
       <div class="form-group">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="name" placeholder="Enter your title" required>
+        <input type="text" id="title" name="title" placeholder="Enter your title" required>
       </div>
       <div class="form-group">
         <label for="description">Description:</label>
