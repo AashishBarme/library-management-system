@@ -56,3 +56,15 @@ CREATE TABLE IF NOT EXISTS `user_login`(
 	PRIMARY KEY(`id`),
 	FOREIGN KEY (`user_id`) REFERENCES `user`(id) ON DELETE CASCADE	
 );
+
+ALTER TABLE `user`
+ADD COLUMN IF NOT EXISTS `role` varchar(10) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `gender`;
+
+ALTER TABLE `user_login`
+ADD COLUMN IF NOT EXISTS `status`  varchar(10) COLLATE 'utf8mb4_unicode_ci' NOT NULL AFTER `password`;
+
+
+INSERT IGNORE INTO `user` (`id`,`firstname`, `lastname`, `gender`,`role`, `address`, `contact`, `status`)
+VALUES (1, 'admin', 'admin', 'male', 'admin','address', '12345678', 'active');
+INSERT IGNORE INTO `user_login` (`id`,`user_id`, `username`, `password`,`status`)
+VALUES (1,'1', 'admin', 'admin','active');
