@@ -1,5 +1,8 @@
 <?php
-require '../../core/functions.php';  ?>
+require '../../core/functions.php'; 
+$categories = listCategories();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +19,20 @@ require '../../core/functions.php';  ?>
    <?php include('../inc/sidebar.php'); ?>
     <div class="main-content">
     <div class="form-container">
-    <form action="#" method="POST">
+    <form action="savedata.php" method="POST">
+    <input type="hidden" name="action" value="create" />
       <div class="form-group">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="name" placeholder="Book Title" required>
+        <input type="text" id="title" name="title" placeholder="Book Title" required>
       </div>
       <div class="form-group">
         <label for="title">Category:</label>
-        <input type="text" id="title" name="category_id" placeholder="Enter your title" required>
+        <select name="category_id" required>
+                <option value="" disabled selected>Select Category</option>
+                <?php foreach($categories as $category): ?>
+                <option value="<?=$category['id'];?>"><?=$category['title'];?></option>
+                <?php endforeach;?>
+        </select>
       </div>
       <div class="form-group">
         <label for="title">Author:</label>
@@ -51,15 +60,20 @@ require '../../core/functions.php';  ?>
       </div>
       <div class="form-group">
           <label for="title">Date Added:</label>
-          <input type="text" id="title" name="date_added" placeholder="Enter your title" required>
+          <input type="date" id="title" name="date_added" placeholder="Enter your title" required>
         </div>
         <div class="form-group">
           <label for="title">Date Received:</label>
-          <input type="text" id="title" name="date_receive" placeholder="Enter your title" required>
+          <input type="date" id="title" name="date_receive" placeholder="Enter your title" >
         </div>
       <div class="form-group">
         <label for="description">Status:</label>
-        <input type="text" id="description" name="status" placeholder="Enter your description" required>
+        <select name="status" required>
+                <option value="" disabled selected>Select Status</option>
+                <option value="available">Available</option>
+                <option value="borrowed">Borrowed</option>
+                <option value="out-of-stock">Out of Stock</option>
+            </select>
       </div>
       <button type="submit" class="btn">Submit</button>
     </form>

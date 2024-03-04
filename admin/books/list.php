@@ -1,5 +1,6 @@
 <?php
-require '../../core/functions.php';  ?>
+require '../../core/functions.php';
+$books = listBooks();  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,23 +22,27 @@ require '../../core/functions.php';  ?>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date Added</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach($books as $book):?>
                 <tr>
                     <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>Admin</td>
+                    <td><?=$book['book_title'];?></td>
+                    <td><?=$book['author'];?></td>
+                    <td><?=$book['date_added'];?></td>
+                    <td><?=$book['status'];?></td>
                     <td class="action-buttons">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
+                        <a class="edit" href="./edit.php?id=<?=$book['id'];?>">Edit</a>
+                        <a class="delete" href="./delete.php?id=<?=$book['id'];?>">Delete</a>
                     </td>
                 </tr>
+                <?php endforeach; ?>
                 <!-- Add more rows here -->
             </tbody>
         </table>
