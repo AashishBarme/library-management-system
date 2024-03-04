@@ -61,6 +61,10 @@
             } 
             return $data;
         }
+
+        public function last_insert_id(){
+            return $this->insert_id;
+        }
     }
 
 

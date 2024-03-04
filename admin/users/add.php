@@ -62,7 +62,8 @@ require '../../core/functions.php';  ?>
    <?php include('../inc/sidebar.php'); ?>
     <div class="main-content">
     <div class="form-container">
-    <form action="#" method="POST">
+    <form action="savedata.php" method="POST">
+    <input type="hidden" name="action" value="create" />
       <div class="form-group">
         <label for="title">First Name:</label>
         <input type="text" id="title" name="firstname" required>
@@ -85,6 +86,13 @@ require '../../core/functions.php';  ?>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="title">Role:</label>
+        <select name="role" id="gender">
+          <option value="librarian">Librarian</option>
+          <option value="student">Student</option>
         </select>
       </div>
       <div class="form-group">

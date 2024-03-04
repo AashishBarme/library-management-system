@@ -1,5 +1,6 @@
 <?php
-require '../../core/functions.php';  ?>
+require '../../core/functions.php'; 
+$users = listUsers(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,22 +23,24 @@ require '../../core/functions.php';  ?>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Role</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($users as $user):?>
                 <tr>
                     <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>Admin</td>
+                    <td><?=$user['username'];?></td>
+                    <td><?=$user['role'];?></td>
+                    <td><?=$user['status'];?></td>
                     <td class="action-buttons">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
+                        <a class="edit" href="./edit.php?id=<?=$user['id'];?>">Edit</a>
+                        <a class="delete" href="./delete.php?id=<?=$user['id'];?>">Delete</a>
                     </td>
                 </tr>
+                <?php endforeach; ?>
                 <!-- Add more rows here -->
             </tbody>
         </table>

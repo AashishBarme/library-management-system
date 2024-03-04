@@ -13,7 +13,9 @@ require '../../core/functions.php';  ?>
    <?php include('../inc/sidebar.php'); ?>
     <div class="main-content">
     <div class="form-container">
-    <form action="#" method="POST">
+    <form action="savedata.php" method="POST">
+    <input type="hidden" name="action" value="update" />
+      <input type="hidden" name="id" value="<?=$id;?>" />
       <div class="form-group">
         <label for="title">Title:</label>
         <input type="text" id="title" title="name" placeholder="Enter your title" required>

@@ -102,8 +102,13 @@
 
  function addUser($firstname, $lastname, $gender, $role, $address, $contact,$status)
  {
-   $query = "insert into `user`(firsname, lastname, gender, role, address, contact, status) values('".$firstname."','".$lastname."','".$gender."','".$role."','".$address."','".$contact."','".$status."')";
-   return db::getInstance()->dbquery($query);
+   $query = "insert into `user`(firstname, lastname, gender, role, address, contact, status) values('".$firstname."','".$lastname."','".$gender."','".$role."','".$address."','".$contact."','".$status."')";
+   echo $query;
+   $result = db::getInstance()->dbquery($query);
+   if($result){
+    return db::getInstance()->last_insert_id();
+   }
+   return $result;
  }
 
  function updateUser($id, $firstname, $lastname, $gender, $role, $address, $contact,$status)
@@ -128,19 +133,19 @@
 
  
 
- function addUserLogin($username, $password, $status)
+ function addUserLogin($user_id, $username, $password, $status)
  {
-   $query = "insert into `user_login`(username, password, status) 
-    values('".$username."','".$password."','".$status."')";
+   $query = "insert into `user_login`(user_id, username, password, status) 
+    values('".$user_id."','".$username."','".$password."','".$status."')";
    return db::getInstance()->dbquery($query);
  }
 
- function updateUserLogin($id, $username, $password, $status)
+ function updateUserLogin($user_id, $password, $status)
  {
      $query = "update `user_login` set 
      , `password` = '".$password."' 
      , `status` = '".$status."' 
-     where `id` = '".$id."'";
+     where `user_id` = '".$user_id."'";
      return db::getInstance()->dbquery($query);
  }
 
