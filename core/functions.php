@@ -88,14 +88,17 @@
 
  function listUsers()
  {
-    $query="SELECT * FROM `user`";
+    $query="SELECT u.id, ul.username, u.role, ul.status  FROM `user` u 
+    inner join `user_login` ul on ul.user_id = u.id";
     return db::getInstance()->get_result($query);
  }
 
  
- function getUsersDetails($id)
+ function getUserDetails($id)
  {
-   $query = "select * from `user` where id='".$id."'";
+   $query = "select * from `user` user
+    inner join `user_login` user_login on user_login.user_id = user.id
+    where user.id='".$id."'" ;
    return db::getInstance()->get_result($query);
  } 
 
@@ -143,8 +146,8 @@
  function updateUserLogin($user_id, $password, $status)
  {
      $query = "update `user_login` set 
-     , `password` = '".$password."' 
-     , `status` = '".$status."' 
+      `password` = '".$password."',
+      `status` = '".$status."' 
      where `user_id` = '".$user_id."'";
      return db::getInstance()->dbquery($query);
  }
