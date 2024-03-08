@@ -6,6 +6,7 @@
     echo 'Not Authorized';
     die;
   }
+  $borrowed_id = $_GET['borrowed_id'];
   $book = getBook(intval($id));
 ?>
 
@@ -27,6 +28,7 @@
     <form action="savedata.php" method="POST">
       <input type="hidden" name="action" value="update" />
       <input type="hidden" name="book_id" value="<?=$id;?>" />
+      <input type="hidden" name="borrowed_id" value="<?=$borrowed_id;?>" />
       <input type="hidden" name="member_id" value="7" />
       <div class="form-group">
         <label for="title">Title:</label>

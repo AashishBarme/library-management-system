@@ -1,6 +1,7 @@
 <?php
 require '../../core/functions.php';
-$books = listBooks();  ?>
+$status = 'available';
+$books = listBooks($status);  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +31,9 @@ $books = listBooks();  ?>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($books as $book):?>
+                <?php foreach($books as $key=> $book):?>
                 <tr>
-                    <td>1</td>
+                    <td><?=$key + 1 ;?></td>
                     <td><?=$book['book_title'];?></td>
                     <td><?=$book['author'];?></td>
                     <td><?=$book['date_added'];?></td>

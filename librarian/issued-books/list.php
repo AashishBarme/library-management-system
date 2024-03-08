@@ -1,6 +1,6 @@
 <?php
 require '../../core/functions.php';
-$books = listBorrowedBooks(7);  ?>
+$books = listBorrowedBooks();  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,24 +20,33 @@ $books = listBorrowedBooks(7);  ?>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Author</th>
+                    <th>Borrowed By</th>
                     <th>Borrowed Date</th>
                     <th>Due Date</th>
+                    <th>Returned Date</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($books as $book):?>
+                <?php
+                 foreach($books as $key=> $book):?>
                 <tr>
-                    <td>1</td>
+                    <td><?=$key+1;?></td>
                     <td><?=$book['book_title'];?></td>
-                    <td><?=$book['author'];?></td>
+                    <td><?=$book['username'];?></td>
                     <td><?=$book['date_borrow'];?></td>
                     <td><?=$book['due_date'];?></td>
+                    <td><?=$book['date_return'];?></td>
                     <td><?=$book['borrow_status'];?></td>
                     <td class="action-buttons">
-                        <a class="edit"  href="./return.php?id=<?=$book['book_id'];?>">Return Book</a>
+                        <?php if($book['borrow_status'] == 'pending'): ?>
+                        <a class="edit"  href="./borrow.php?borrowed_id=<?=$book['borrowed_id'];?>&id=<?=$book['book_id'];?>">Approve</a>
+                        <?php elseif($book['borrow_status'] == 'borrowed') :?>
+                        <a class="edit"  href="./return.php?borrowed_id=<?=$book['borrowed_id'];?>&id=<?=$book['book_id'];?>">Return Book</a>
+                        <?php else: ?>
+                            <a class="delete disabled">No Action Required </a>
+                        <?php endif;?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

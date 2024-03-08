@@ -41,11 +41,13 @@
 
 
 
- function listBooks()
+ function listBooks($status, $offset = 0, $limit = 20)
  {
-    $query="SELECT * FROM `book`";
+    $where = ($status != '')? "and status = '".$status."'": '';
+    $query="SELECT * FROM `book` where 1 ".$where." limit ".$limit." offset ".$offset."";
     return db::getInstance()->get_result($query);
  }
+
 
  function getBook($id)
  {
@@ -152,9 +154,24 @@
      return db::getInstance()->dbquery($query);
  }
 
- function listBorrowedBooks($member_id)
+ function listBorrowedBooks()
  {
-    $query = "select bk.book_title, bk.author, b.book_id, b.date_borrow, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id  where member_id = '".$member_id."'";
+    $query = "select b.id as borrowed_id, bk.book_title, bk.author, u.username, b.book_id, b.date_borrow, b.date_return, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id 
+    inner join user_login u on u.user_id = b.member_id";
+    return db::getInstance()->get_result($query);
+ }
+
+ function getBorrowedBooks($member_id)
+ {
+    $query = "select b.id as borrowed_id,bk.book_title, bk.author, b.book_id, b.date_borrow, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id 
+    inner join user u on u.id = b.member_id where b.member_id = '".$member_id."'";
+    return db::getInstance()->get_result($query);
+ }
+
+ function getBorrowedBookDetails($book_id, $borrowed_id)
+ {
+  $query = "select b.id as borrowed_id, bk.book_title, bk.author, u.username, b.member_id, b.book_id, b.date_borrow, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id 
+    inner join user_login u on u.user_id = b.member_id where b.book_id = '".$book_id."' and b.id = '".$borrowed_id."'";
     return db::getInstance()->get_result($query);
  }
 
@@ -170,10 +187,10 @@
     return db::getInstance()->dbquery($query2) ;
  }
 
- function updateBorrowedBookStatus($member_id, $book_id, $return_date, $borrow_status)
+ function updateBorrowedBookStatus($borrowed_id, $member_id, $book_id, $return_date, $borrow_status)
  {
     $query = "update borrow set borrow_status = '".$borrow_status."', date_return = '".$return_date."'
-            where book_id = '".$book_id."' and member_id ='".$member_id."'";
+            where book_id = '".$book_id."' and member_id ='".$member_id."' and id = '".$borrowed_id."'";
     echo $query;
     db::getInstance()->dbquery($query);
 

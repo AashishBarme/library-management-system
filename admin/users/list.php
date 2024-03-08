@@ -29,9 +29,9 @@ $users = listUsers(); ?>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($users as $user):?>
+            <?php foreach($users as $key=> $user):?>
                 <tr>
-                    <td>1</td>
+                    <td><?=$key + 1;?></td>
                     <td><?=$user['username'];?></td>
                     <td><?=$user['role'];?></td>
                     <td><?=$user['status'];?></td>

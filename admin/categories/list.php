@@ -29,9 +29,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($categories as $category):?>
+                <?php foreach($categories as $key=> $category):?>
                 <tr>
-                    <td>1</td>
+                    <td><?$key + 1;?></td>
                     <td><?=$category['title'];?></td>
                     <td><?=$category['description'];?></td>
                   

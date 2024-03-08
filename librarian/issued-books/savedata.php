@@ -6,13 +6,26 @@ if(!isset($_POST['action'])){
 }
 $book_id = $_POST['book_id'];
 $member_id = $_POST['member_id'];
-$borrow_status = 'returned';
-$return_date = date('Y-m-d');
+$return_date = '';
+$borrowed_id = $_POST['borrowed_id'];
 
-if($_POST['action'] == 'update')
+if($_POST['action'] == 'approve')
 {   
-    $result = updateBorrowedBookStatus($member_id, $book_id, $return_date, $borrow_status);
-    // var_dump($result);die;
+    $borrow_status = 'borrowed';
+    $result = updateBorrowedBookStatus($borrowed_id, $member_id, $book_id, $return_date, $borrow_status);
+    if($result)
+    {
+        header("Location: list.php");
+        die;
+    }
+}
+
+
+if($_POST['action'] == 'return')
+{   
+    $borrow_status = 'returned';
+    $return_date = date('Y-m-d');
+    $result = updateBorrowedBookStatus($borrowed_id, $member_id, $book_id, $return_date, $borrow_status);
     if($result)
     {
         header("Location: list.php");
