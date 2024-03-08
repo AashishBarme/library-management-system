@@ -1,6 +1,7 @@
-<?php
-require '../../core/functions.php';
-$books = listBooks();  ?>
+<?php require '../../core/functions.php'; 
+    $categories = listCategories();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ $books = listBooks();  ?>
 <div class="container">
    <?php include('../inc/sidebar.php'); ?>
 <div class="main-content">
-        <h2>Books</h2>
+        <h2>Categories</h2>
         <div class="action-buttons">
             <a class="add" href="./add.php">Add New</a>
         </div>
@@ -22,24 +23,21 @@ $books = listBooks();  ?>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date Added</th>
-                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($books as $book):?>
+                <?php foreach($categories as $category):?>
                 <tr>
                     <td>1</td>
-                    <td><?=$book['book_title'];?></td>
-                    <td><?=$book['author'];?></td>
-                    <td><?=$book['date_added'];?></td>
-                    <td><?=$book['status'];?></td>
+                    <td><?=$category['title'];?></td>
+                    <td><?=$category['description'];?></td>
+                  
                     <td class="action-buttons">
-                        <a class="edit" href="./edit.php?id=<?=$book['id'];?>">Edit</a>
-                        <a class="delete" href="./delete.php?id=<?=$book['id'];?>">Delete</a>
+                        <a class="edit" href="./edit.php?id=<?=$category['id'];?>">Edit</a>
+                        <a class="delete" href="./delete.php?id=<?=$category['id'];?>">Delete</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -6,7 +6,7 @@ require '../../core/functions.php';
       echo 'Not Authorized';
       die;
     }
-    $result = deleteBook($id);
+    $result = deleteCategory($id);
     if($result)
     {
         header("Location: list.php");
