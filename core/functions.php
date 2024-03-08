@@ -152,5 +152,32 @@
      return db::getInstance()->dbquery($query);
  }
 
+ function listBorrowedBooks($member_id)
+ {
+    $query = "select bk.book_title, bk.author, b.book_id, b.date_borrow, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id  where member_id = '".$member_id."'";
+    return db::getInstance()->get_result($query);
+ }
 
 
+ function addBorrowedBooksAndUpdateStatus($member_id, $book_id, $date_borrow, $due_date, $borrow_status)
+ {
+    $query = "insert into `borrow`(member_id, book_id, date_borrow, due_date, borrow_status) 
+              values('".$member_id."','".$book_id."','".$date_borrow."','".$due_date."','".$borrow_status."')";
+    db::getInstance()->dbquery($query);
+
+
+    $query2 = "update book set status = '".$borrow_status."' where id = '".$book_id."'";
+    return db::getInstance()->dbquery($query2) ;
+ }
+
+ function updateBorrowedBookStatus($member_id, $book_id, $return_date, $borrow_status)
+ {
+    $query = "update borrow set borrow_status = '".$borrow_status."', date_return = '".$return_date."'
+            where book_id = '".$book_id."' and member_id ='".$member_id."'";
+    echo $query;
+    db::getInstance()->dbquery($query);
+
+
+    $query2 = "update book set status = 'available' where id = '".$book_id."'";
+    return db::getInstance()->dbquery($query2) ;
+ }

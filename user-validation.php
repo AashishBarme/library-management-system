@@ -18,14 +18,30 @@ if($_POST['action'] == 'Login')
     }
 
     $userDetails = getUsersDetails($user[0]['id']);
-        if($userDetails[0]['role'] == 'admin')
-        {
-            session_start();
-            $_SESSION["firstname"] = $userDetails[0]['firstname'];
-            $_SESSION["authorized"] = true;
-            header("Location:./admin/dashboard.php");
-            die;
-        }
+    if($userDetails[0]['role'] == 'admin')
+    {
+        session_start();
+        $_SESSION["firstname"] = $userDetails[0]['firstname'];
+        $_SESSION["authorized"] = true;
+        header("Location:./admin/dashboard.php");
+        die;
+    }
+    if($userDetails[0]['role'] == 'student')
+    {
+        session_start();
+        $_SESSION["firstname"] = $userDetails[0]['firstname'];
+        $_SESSION["authorized"] = true;
+        header("Location:./student/dashboard.php");
+        die;
+    }
+    if($userDetails[0]['role'] == 'librarian')
+    {
+        session_start();
+        $_SESSION["firstname"] = $userDetails[0]['firstname'];
+        $_SESSION["authorized"] = true;
+        header("Location:./librarian/dashboard.php");
+        die;
+    }
 
     
 

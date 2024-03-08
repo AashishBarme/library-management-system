@@ -104,7 +104,7 @@ tr:hover {
 .action-buttons {
     display: flex;
 }
-.action-buttons button {
+.action-buttons button, .action-buttons a {
     padding: 6px 10px;
     margin: 2px;
     border: none;
@@ -113,16 +113,16 @@ tr:hover {
     transition: background-color 0.3s ease;
     font-size: 14px;
 }
-.action-buttons button.edit {
+.action-buttons button.edit , .action-buttons a.edit {
     background-color: #007bff;
     color: white;
 }
 
-.action-buttons button.add {
+.action-buttons button.add , .action-buttons a.add  {
     background-color: #4CAF50;
     color: white;
 }
-.action-buttons button.delete {
+.action-buttons button.delete , .action-buttons a.delete {
     background-color: #dc3545;
     color: white;
 }
@@ -178,14 +178,7 @@ input[type="submit"]:hover {
     margin-bottom: 5px;
     color: #333;
   }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-  }
+
   
   .form-group input:focus {
     outline: none;

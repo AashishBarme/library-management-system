@@ -1,6 +1,6 @@
 <?php
 require '../../core/functions.php';
-$books = listBooks();  ?>
+$books = listBorrowedBooks(7);  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,8 @@ $books = listBooks();  ?>
                     <th>ID</th>
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Date Added</th>
+                    <th>Borrowed Date</th>
+                    <th>Due Date</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
@@ -32,10 +33,11 @@ $books = listBooks();  ?>
                     <td>1</td>
                     <td><?=$book['book_title'];?></td>
                     <td><?=$book['author'];?></td>
-                    <td><?=$book['date_added'];?></td>
-                    <td><?=$book['status'];?></td>
+                    <td><?=$book['date_borrow'];?></td>
+                    <td><?=$book['due_date'];?></td>
+                    <td><?=$book['borrow_status'];?></td>
                     <td class="action-buttons">
-                        <a class="edit"  href="./issue.php?id=<?=$book['id'];?>">Issue Book</a>
+                        <a class="edit"  href="./return.php?id=<?=$book['book_id'];?>">Return Book</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>
