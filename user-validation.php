@@ -17,7 +17,7 @@ if($_POST['action'] == 'Login')
         die;
     }
 
-    $userDetails = getUsersDetails($user[0]['id']);
+    $userDetails = getUserDetails($user[0]['user_id']);
     if($userDetails[0]['role'] == 'admin')
     {
         session_start();
