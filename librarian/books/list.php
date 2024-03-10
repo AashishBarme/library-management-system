@@ -1,7 +1,7 @@
 <?php
 require '../../core/functions.php';
 include('../validation.php');
-$status = 'available';
+$status = '';
 $books = listBooks($status);  ?>
 <!DOCTYPE html>
 <html lang="en">
