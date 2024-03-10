@@ -1,5 +1,6 @@
 <?php
 require '../../core/functions.php';
+include('../validation.php');
 $books = getBorrowedBooks(7);  ?>
 <!DOCTYPE html>
 <html lang="en">

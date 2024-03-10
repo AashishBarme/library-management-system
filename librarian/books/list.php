@@ -1,5 +1,6 @@
 <?php
 require '../../core/functions.php';
+include('../validation.php');
 $status = 'available';
 $books = listBooks($status);  ?>
 <!DOCTYPE html>

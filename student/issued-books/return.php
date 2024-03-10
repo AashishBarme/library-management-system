@@ -1,4 +1,5 @@
 <?php 
+include('../validation.php');
   require '../../core/functions.php'; 
   $id = isset($_GET['id']) ? $_GET['id'] : '';
   if(empty($id))
@@ -7,6 +8,7 @@
     die;
   }
   $borrowed_id = $_GET['borrowed_id'];
+  $user_id = $_SESSION["user_id"];
   $book = getBook(intval($id));
 ?>
 
@@ -29,7 +31,7 @@
       <input type="hidden" name="action" value="update" />
       <input type="hidden" name="book_id" value="<?=$id;?>" />
       <input type="hidden" name="borrowed_id" value="<?=$borrowed_id;?>" />
-      <input type="hidden" name="member_id" value="7" />
+      <input type="hidden" name="member_id" value="<?=$user_id;?>" />
       <div class="form-group">
         <label for="title">Title:</label>
         <input type="text" disabled="disabled" id="title" name="title" placeholder="Enter your title" required 

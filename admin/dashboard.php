@@ -1,6 +1,7 @@
 <?php
 
 require '../core/functions.php';
+include('validation.php');
 if(!isset($_SESSION) || !$_SESSION['authorized'])
 {
     echo 'NOT AUTHORIZED';

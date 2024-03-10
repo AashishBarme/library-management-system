@@ -23,6 +23,8 @@ if($_POST['action'] == 'Login')
         session_start();
         $_SESSION["firstname"] = $userDetails[0]['firstname'];
         $_SESSION["authorized"] = true;
+        $_SESSION["role"] = "admin";
+        $_SESSION["user_id"] = $user[0]['user_id'];
         header("Location:./admin/dashboard.php");
         die;
     }
@@ -31,6 +33,8 @@ if($_POST['action'] == 'Login')
         session_start();
         $_SESSION["firstname"] = $userDetails[0]['firstname'];
         $_SESSION["authorized"] = true;
+        $_SESSION["role"] = "student";
+        $_SESSION["user_id"] = $user[0]['user_id'];
         header("Location:./student/dashboard.php");
         die;
     }
@@ -39,6 +43,8 @@ if($_POST['action'] == 'Login')
         session_start();
         $_SESSION["firstname"] = $userDetails[0]['firstname'];
         $_SESSION["authorized"] = true;
+        $_SESSION["role"] = "librarian";
+        $_SESSION["user_id"] = $user[0]['user_id'];
         header("Location:./librarian/dashboard.php");
         die;
     }

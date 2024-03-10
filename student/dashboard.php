@@ -1,9 +1,13 @@
+<?php
+require '../core/functions.php';
+include('validation.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
+<title>Student Panel</title>
  <link rel="stylesheet" href="../assets/css/style.css" />
  <style>
      .banner {
@@ -19,8 +23,7 @@
    <?php include('./inc/sidebar.php'); ?>
 <div class="main-content">
 <div class="banner">
-        <h1>Welcome to the Dashboard</h1>
-        <p>This is a simple dashboard example</p>
+        <h1>Hello <?=$_SESSION['firstname'];?>, Welcome to your dashboard</h1>
     </div>
 
     </div>

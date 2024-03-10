@@ -5,6 +5,7 @@ define('DBPWD','admin');
 define('DBHOST','localhost');
 define('DBNAME','lms');
 
-define('ADMIN_URL','http://localhost/library-management-system/admin');
-define('STUDENT_URL','http://localhost/library-management-system/student');
-define('LIBRARIAN_URL','http://localhost/library-management-system/librarian');
+define('MAIN_URL', 'http://localhost/library-management-system/');
+define('ADMIN_URL',MAIN_URL.'admin');
+define('STUDENT_URL',MAIN_URL.'student');
+define('LIBRARIAN_URL',MAIN_URL.'librarian');

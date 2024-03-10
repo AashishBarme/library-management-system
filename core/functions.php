@@ -1,7 +1,6 @@
 <?php
 //  require 'config.php';
  require 'db.php';
- session_start();
  function listCategories()
  {
     $query="SELECT * FROM `category`";

@@ -1,3 +1,7 @@
+<?php
+require '../core/functions.php';
+include('validation.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +24,6 @@
 <div class="main-content">
 <div class="banner">
         <h1>Welcome to the Dashboard</h1>
-        <p>This is a simple dashboard example</p>
     </div>
 
     </div>

@@ -1,5 +1,6 @@
 <?php  
-require '../../core/functions.php';  ?>
+require '../../core/functions.php';  
+include('../validation.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

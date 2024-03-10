@@ -1,4 +1,5 @@
 <?php
+include('../validation.php');
 require '../../core/functions.php'; 
 if(!isset($_POST['action'])){
     echo 'Not Authorized';
