@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) || (trim($_SESSION['user_id']) == '')) {
     exit();
 }
 
-if(!isset($_SESSION['role']) || (trim($_SESSION['role']) !='student'))
+if(!isset($_SESSION['role']) || (trim($_SESSION['role']) !='admin'))
 {
     echo 'Not Authorized';
     die;
