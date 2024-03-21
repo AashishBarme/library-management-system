@@ -30,11 +30,17 @@
       <input type="hidden" name="action" value="return" />
       <input type="hidden" name="borrowed_id" value="<?=$borrowed_id;?>" />
       <input type="hidden" name="book_id" value="<?=$id;?>" />
+      <input type="hidden" name="due_date" value="<?=$book[0]['due_date'];?>" />
       <input type="hidden" name="member_id" value="<?=$book[0]['member_id'];?>" />
       <div class="form-group">
         <label for="title">Title:</label>
         <input type="text" disabled="disabled" id="title" name="title" placeholder="Enter your title" required 
         value="<?=$book[0]['book_title'];?>">
+      </div>
+      <div class="form-group">
+        <label for="title">Due Date:</label>
+        <input type="text" disabled="disabled" id="title" name="due_date" required 
+        value="<?=$book[0]['due_date'];?>">
       </div>
       <button type="submit" class="btn">Submit</button>
     </form>

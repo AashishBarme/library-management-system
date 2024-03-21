@@ -37,7 +37,7 @@ $books = listBooks($status);  ?>
                     <td><?=$book['date_added'];?></td>
                     <td><?=$book['status'];?></td>
                     <td class="action-buttons">
-                        <a class="edit"  href="./issue.php?id=<?=$book['id'];?>">Issue Book</a>
+                        <a class="edit"  href="./issue.php?id=<?=$book['id'];?>">Request Book</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

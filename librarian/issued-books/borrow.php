@@ -43,8 +43,9 @@
       </div>
       <div class="form-group">
         <label for="title">Due Date:</label>
-        <input type="text" disabled="disabled" id="title" name="title" placeholder="Enter your title" required 
-        value="<?=$book[0]['due_date'];?>">
+          <input type="date" id="title" name="due_date"  >
+        <!-- <input type="text" disabled="disabled" id="title" name="title" placeholder="Enter your title" required 
+        value="<?=$book[0]['due_date'];?>"> -->
       </div>
       <button type="submit" class="btn">Approved</button>
     </form>

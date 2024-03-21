@@ -175,10 +175,10 @@
  }
 
 
- function addBorrowedBooksAndUpdateStatus($member_id, $book_id, $date_borrow, $due_date, $borrow_status)
+ function addBorrowedBooksAndUpdateStatus($member_id, $book_id, $date_borrow, $borrow_status)
  {
-    $query = "insert into `borrow`(member_id, book_id, date_borrow, due_date, borrow_status) 
-              values('".$member_id."','".$book_id."','".$date_borrow."','".$due_date."','".$borrow_status."')";
+    $query = "insert into `borrow`(member_id, book_id, date_borrow, borrow_status) 
+              values('".$member_id."','".$book_id."','".$date_borrow."','".$borrow_status."')";
     db::getInstance()->dbquery($query);
 
 
@@ -186,11 +186,11 @@
     return db::getInstance()->dbquery($query2) ;
  }
 
- function updateBorrowedBookStatus($borrowed_id, $member_id, $book_id, $return_date, $borrow_status)
+ function updateBorrowedBookStatus($borrowed_id, $member_id, $book_id, $return_date, $borrow_status, $due_date)
  {
-    $query = "update borrow set borrow_status = '".$borrow_status."', date_return = '".$return_date."'
+    $query = "update borrow set borrow_status = '".$borrow_status."', date_return = '".$return_date."',
+              due_date = '".$due_date."'
             where book_id = '".$book_id."' and member_id ='".$member_id."' and id = '".$borrowed_id."'";
-    echo $query;
     db::getInstance()->dbquery($query);
 
 
