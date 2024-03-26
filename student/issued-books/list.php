@@ -1,7 +1,7 @@
 <?php
 require '../../core/functions.php';
 include('../validation.php');
-$books = getBorrowedBooks(7);  ?>
+$books = getBorrowedBooks( $_SESSION["user_id"]);  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
