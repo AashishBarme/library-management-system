@@ -40,12 +40,24 @@
 
 
 
- function listBooks($status, $offset = 0, $limit = 20)
+ function listBooks($status,  $offset = 0, $limit = 20)
  {
     $where = ($status != '')? "and status = '".$status."'": '';
     $query="SELECT * FROM `book` where 1 ".$where." limit ".$limit." offset ".$offset."";
+
     return db::getInstance()->get_result($query);
  }
+
+
+ function listBooksInStudentPanel($status, $title, $offset = 0, $limit = 20)
+ {
+    $where = ($status != '')? "and status = '".$status."'": '';
+    $where.= ($title != '')? " and book_title like '%".$title."%'": '';
+    $query="SELECT * FROM `book` where 1 ".$where." limit ".$limit." offset ".$offset."";
+
+    return db::getInstance()->get_result($query);
+ }
+
 
 
  function getBook($id)
@@ -155,7 +167,7 @@
 
  function listBorrowedBooks()
  {
-    $query = "select b.id as borrowed_id, bk.book_title, bk.author, u.username, b.book_id, b.date_borrow, b.date_return, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id 
+    $query = "select b.id as borrowed_id, bk.book_title, bk.author, u.username, u.user_id, b.book_id, b.date_borrow, b.date_return, b.due_date, b.borrow_status from borrow b inner join book bk on b.book_id = bk.id 
     inner join user_login u on u.user_id = b.member_id";
     return db::getInstance()->get_result($query);
  }

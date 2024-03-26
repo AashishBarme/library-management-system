@@ -63,7 +63,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <select name="role" required>
                 <option value="" disabled selected>Select Role</option>
-                <option value="admin">Admin</option>
+                <option value="librarian">Librarian</option>
                 <option value="user">User</option>
             </select>
             <input type="submit" value="Register">

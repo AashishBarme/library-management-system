@@ -35,7 +35,8 @@ $books = listBorrowedBooks();  ?>
                 <tr>
                     <td><?=$key+1;?></td>
                     <td><?=$book['book_title'];?></td>
-                    <td><?=$book['username'];?></td>
+                    <td>ID: <?=$book['user_id']; ?> <br>
+                    Username: <?=$book['username'];?>  </td>
                     <td><?=$book['date_borrow'];?></td>
                     <td><?=$book['due_date'];?></td>
                     <td><?=$book['date_return'];?></td>
