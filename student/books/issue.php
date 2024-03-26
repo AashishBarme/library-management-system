@@ -24,7 +24,7 @@ include('../validation.php');
 <div class="container">
    <?php include('../inc/sidebar.php'); ?>
     <div class="main-content">
-    <h2>Return Book: <?=$book[0]['book_title'];?> </h2>
+    <h2>Requested Book: <?=$book[0]['book_title'];?> </h2>
     <div class="form-container">
     <form action="savedata.php" method="POST">
       <input type="hidden" name="action" value="update" />
