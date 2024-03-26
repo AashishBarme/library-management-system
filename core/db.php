@@ -37,7 +37,7 @@
             exit('Connect Error (' . mysqli_connect_errno() . ') '
                     . mysqli_connect_error());
         }
-        parent::set_charset('utf-8');
+        // parent::set_charset('utf-8');
 
        }
        
