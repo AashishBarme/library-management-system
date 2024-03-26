@@ -68,3 +68,6 @@ INSERT IGNORE INTO `user` (`id`,`firstname`, `lastname`, `gender`,`role`, `addre
 VALUES (1, 'admin', 'admin', 'male', 'admin','address', '12345678', 'active');
 INSERT IGNORE INTO `user_login` (`id`,`user_id`, `username`, `password`,`status`)
 VALUES (1,'1', 'admin', 'admin','active');
+
+
+ALTER TABLE `user_login` add unique (username);
